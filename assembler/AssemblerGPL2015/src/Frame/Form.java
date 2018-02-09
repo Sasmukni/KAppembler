@@ -9,7 +9,7 @@ import java.awt.Component;
 import java.awt.TextArea;
 import java.io.BufferedReader;
 import javax.swing.JFrame;
-
+import javax.swing.JButton;
 
 public class Form {
 	BufferedReader br = null;
@@ -17,18 +17,28 @@ public class Form {
 	Read r=new Read();
 	TextArea input=new TextArea();
 	TextArea output=new TextArea();
+	TextArea instr=new TextArea();
+	JButton submit=new JButton("submit");
+	Listeners listener=new Listeners();
+	
 	public void visualizza(){
 		f.setSize(700, 700);
 		JPanel p1=new JPanel();
 		input.setSize(500, 500);
 		output.setSize(400, 500);
+		instr.setSize(400, 500);
 		output.setEditable(false);
+		instr.setEditable(false);
+		submit.addActionListener(listener);
 		p1.add(input);
 		p1.add(output);
-		output.setText(r.readfilePass("Z:\\assembler\\instruction.txt"));
+		p1.add(instr);
+		p1.add(submit);
+		instr.setText(r.readfilePass("C:\\Users\\s5067966h\\Desktop\\KappemblerPRJ\\KAppembler\\assembler\\instruction.txt"));
 		//output.setText(r.readfilePass("C:\\Users\\Samuele Capani\\Desktop\\Assembler\\assembler\\instruction.txt"));
 		f.add(p1);
 		f.setVisible(true);
+		
 	}
 	public String GetInput() {
 		String s="";
