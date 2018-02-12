@@ -1,17 +1,22 @@
 package Frame;
 
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Assemblation.Elaboration;
+import Main.main;
 
 public class Listeners implements ActionListener{
-	Form f=new Form();
-	Elaboration el=new Elaboration();
+	private TextArea input;
+	private TextArea output;
+	public Listeners(TextArea i,TextArea o) {
+		this.input=i;
+		this.output=o;
+	}
 	public void actionPerformed(ActionEvent evt) {
-        /*el.input=f.input.getText();
-        el.traduction();
-        f.output.setText(el.trad);*/
-		System.out.println("ciao");
+		Elaboration el=new Elaboration();
+		el.setInstructions();
+        output.setText(el.traduction(input.getText()));
 	}
 }

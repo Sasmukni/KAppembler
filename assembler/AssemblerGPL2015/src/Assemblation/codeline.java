@@ -24,7 +24,7 @@ public class codeline {
 		}else {
 			Key=SemiHumanCode;
 		}
-		if(temp!="" && temp.contains(",")) {
+		/*if(temp!="" && temp.contains(",")) {
 			atemp=temp.split(",");
 			FirstFactor=atemp[0];
 			SecondFactor=atemp[1];
@@ -34,7 +34,7 @@ public class codeline {
 		FirstModifier=GetModifier(FirstFactor,RegisterList);
 		SecondModifier=GetModifier(SecondFactor,RegisterList);
 		if(FirstModifier.contains("n"))FirstNB=GetNumber(FirstModifier);
-		if(SecondModifier.contains("n"))SecondNB=GetNumber(SecondModifier);
+		if(SecondModifier.contains("n"))SecondNB=GetNumber(SecondModifier);*/
 	}
 	private String GetModifier(String Factor,String[] Reg) {
 		itemp=0;

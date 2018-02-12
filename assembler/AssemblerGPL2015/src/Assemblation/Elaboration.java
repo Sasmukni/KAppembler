@@ -8,10 +8,7 @@ public class Elaboration {
 	Form obj=new Form();
 	Read r=new Read();
 	instructions in;
-	public String input;
-	public String trad="";
 	public ArrayList<instructions> inst= new ArrayList<instructions>();
-	public ArrayList<codeline> code= new ArrayList<codeline>();
 	String[] RegList;
 	public void setInstructions() {
 		String instructionSet=r.readfilePass("C:\\\\Users\\\\s5067966h\\\\Desktop\\\\KappemblerPRJ\\\\KAppembler\\\\assembler\\\\instruction.txt");
@@ -24,16 +21,21 @@ public class Elaboration {
 			inst.add(new instructions(atemp[0],atemp[1],RegList));
 		}
 	}
-	public void traduction() {
+	public String traduction(String input) {
+		ArrayList<codeline> code= new ArrayList<codeline>();
+		String trad="";
 		String[] atemp=r.linedivision(input);
-		for(int i=1;i<atemp.length;i++)
+		for(int i=0;i<atemp.length;i++) 
 			code.add(new codeline(atemp[i],RegList));
 		for(int i=0;i<code.size();i++){
 			for(int c=0;c<inst.size();c++) {
-				if(code.get(i).Key==inst.get(c).Key)
-					trad+=inst.get(c).MachineCode+"/n";
+				if(code.get(i).Key.equals(inst.get(c).Key)) {
+					trad=inst.get(c).MachineCode;
+					System.out.println("trad in ciclo 2 stato i: "+i+" c: "+c+""+trad);
+				}
 			}
 		}
+		return trad;
 	}
 	public void getInsMC(int val) {
 		System.out.println("Machine Code "+(val+1)+" :"+ inst.get(val).MachineCode);

@@ -19,12 +19,13 @@ public class Form {
 	TextArea output=new TextArea();
 	TextArea instr=new TextArea();
 	JButton submit=new JButton("submit");
-	Listeners listener=new Listeners();
+	Listeners listener=new Listeners(input,output);
 	
 	public void visualizza(){
 		f.setSize(700, 700);
 		JPanel p1=new JPanel();
 		input.setSize(500, 500);
+		input.setText("HALT /n JP");
 		output.setSize(400, 500);
 		instr.setSize(400, 500);
 		output.setEditable(false);
