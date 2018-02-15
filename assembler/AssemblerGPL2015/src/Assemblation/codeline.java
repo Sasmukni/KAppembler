@@ -18,9 +18,14 @@ public class codeline {
 		SemiHumanCode=SHC;
 		RegisterList=RL;
 		if(SemiHumanCode.contains(" ")){
-			atemp=SemiHumanCode.split(" ");
-			Key=atemp[0];
-			temp=atemp[1];
+			if(!SemiHumanCode.endsWith(" ")) {
+				atemp=SemiHumanCode.split(" ");
+				Key=atemp[0];
+				temp=atemp[1];
+			}else {
+				atemp=SemiHumanCode.split(" ");
+				Key=atemp[0];
+			}
 		}else {
 			Key=SemiHumanCode;
 		}

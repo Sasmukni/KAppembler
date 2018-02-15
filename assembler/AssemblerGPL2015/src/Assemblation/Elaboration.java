@@ -24,14 +24,14 @@ public class Elaboration {
 	public String traduction(String input) {
 		ArrayList<codeline> code= new ArrayList<codeline>();
 		String trad="";
-		String[] atemp=r.linedivision(input);
-		for(int i=0;i<atemp.length;i++) 
+		String[] atemp=input.split("\r\n");
+		for(int i=0;i<atemp.length;i++) {
 			code.add(new codeline(atemp[i],RegList));
+		}
 		for(int i=0;i<code.size();i++){
 			for(int c=0;c<inst.size();c++) {
 				if(code.get(i).Key.equals(inst.get(c).Key)) {
-					trad=inst.get(c).MachineCode;
-					System.out.println("trad in ciclo 2 stato i: "+i+" c: "+c+""+trad);
+					trad+=inst.get(c).MachineCode+"\r\n";
 				}
 			}
 		}

@@ -25,7 +25,7 @@ public class Form {
 		f.setSize(700, 700);
 		JPanel p1=new JPanel();
 		input.setSize(500, 500);
-		input.setText("HALT /n JP");
+		input.setText("HALT \r\nJP");
 		output.setSize(400, 500);
 		instr.setSize(400, 500);
 		output.setEditable(false);
